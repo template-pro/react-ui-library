@@ -1,0 +1,27 @@
+@import "../../styles/themes/index";
+@import "~antd/es/input/style/index.less";
+
+.@{cls-prefix}-search-result {
+  position: relative;
+  margin-bottom: 16px;
+
+  &>&-result-wrapper {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    max-height: 400px;
+    padding: 8px 0;
+    overflow: overlay;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+
+    &>.empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      color: @text-color-generally;
+    }
+  }
+}

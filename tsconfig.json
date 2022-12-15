@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@template-pro/desktop-ui": ["./packages/desktop-ui/src/index"],
+      "@template-pro/mobile-ui": ["./packages/mobile-ui/src/index"],
+      "@template-pro/rc-ui":["./packages/rc-ui/src/index"],
+      "@template-pro/icons":["./packages/icons/src/index"],
+      "@template-pro/utils":["./packages/utils/src/index"],
+    },
+    // "typeRoots": ["./typings", "./node_modules/@types"],
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "declaration": false,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "experimentalDecorators": true,
+    "noUnusedParameters": true,
+    // "noUnusedLocals": true,
+    "noImplicitAny": true
+  },
+  "exclude": ["node_modules", "lib", "es"]
+}

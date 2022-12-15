@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectTrigger 支持数组和字符串格式 value 1`] = `
+<p
+  class="jgb-pc-select-trigger-value"
+>
+  hello world
+</p>
+`;
+
+exports[`SelectTrigger 支持数组和字符串格式 value 2`] = `
+<p
+  class="jgb-pc-select-trigger-value"
+>
+  hello
+  、
+  world
+</p>
+`;
+
+exports[`SelectTrigger 正确 render 1`] = `
+<div>
+  <div
+    class="jgb-pc-select-trigger jgb-pc-select-trigger-size__lg"
+    tabindex="0"
+  >
+    <p
+      class="jgb-pc-select-trigger-placeholder"
+    />
+    <span
+      class="jgb-pc-select-trigger-suffix"
+    >
+      <span
+        class="jgb-pc-select-trigger-select-text"
+      >
+        选择
+      </span>
+    </span>
+  </div>
+</div>
+`;

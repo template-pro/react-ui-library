@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "loose": true,
+        "modules": false
+      }
+    ],
+    "@babel/react"
+  ],
+  "include": "**/*.js",
+  "exclude": "**/*.ts"
+}

@@ -1,0 +1,115 @@
+@import "../../styles/themes/index";
+@import "../../styles/mixins/index";
+
+@select-trigger-prefix-cls: ~'@{cls-prefix}-select-trigger';
+
+.status-color(@borderColor: #40a9ff) {
+  &:not(.@{select-trigger-prefix-cls}-disabled).@{select-trigger-prefix-cls} {
+
+    &,
+    &:hover,
+    &:focus {
+      border-color: @borderColor;
+    }
+  }
+}
+
+.@{select-trigger-prefix-cls} {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px 0 12px;
+  border: 1px solid @border-color;
+  border-radius: @border-radius;
+  outline: none;
+  background-color: @background-color-base;
+  transition: all .3s;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover,
+  &:focus {
+    border-color: #40a9ff;
+  }
+
+  &:hover {
+    .@{select-trigger-prefix-cls}-select-text-control {
+      display: none;
+    }
+
+    .@{select-trigger-prefix-cls}-icon {
+      visibility: visible;
+    }
+  }
+
+  &-value,
+  &-placeholder {
+    flex: 1;
+    margin: 0;
+  }
+
+  &-placeholder {
+    overflow: hidden;
+    white-space: nowrap;
+    /* stylelint-disable-next-line function-no-unknown */
+    color: hsv(0, 0, 75%);
+  }
+
+  &-value {
+    .text-overflow(1);
+
+    color: @text-color-secondary;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+  }
+
+  &-suffix {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 30px;
+    height: 100%;
+  }
+
+  &-select-text {
+    margin: 0 6px;
+    color: #349dea;
+  }
+
+  &-select-text-control {
+    visibility: visible;
+  }
+
+  &-icon {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 100%;
+    visibility: hidden;
+  }
+
+  &-status__warning {
+    .status-color(#faad14);
+  }
+
+  &-status__error {
+    .status-color(#ff4d4f);
+  }
+
+  // FIXME: 还有几个size 不写了, UI 也没给, 以后有需要再加
+  // &SizeSm, &SizeMd{}
+}
+
+.@{select-trigger-prefix-cls}.@{select-trigger-prefix-cls}-size__lg {
+  height: 40px;
+
+  .@{select-trigger-prefix-cls}-icon {
+    width: 16px;
+  }
+}
