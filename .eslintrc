@@ -1,0 +1,16 @@
+{
+  "extends": "@antfu",
+  "overrides": [
+    {
+      "files": [
+        "**/demo/**/*.ts",
+        "**/demo/**/*.tsx",
+        "**/demo/**/*.js",
+        "**/demo/**/*.jsx"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
+}

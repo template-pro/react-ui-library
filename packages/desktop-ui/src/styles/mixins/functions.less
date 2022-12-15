@@ -1,0 +1,17 @@
+.text-overflow(@line: 1) {
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.text-overflow-reset() {
+  display: inline-block;
+  overflow: visible;
+  text-overflow: clip;
+  -webkit-line-clamp: none;
+  -webkit-box-orient: inline-axis;
+}

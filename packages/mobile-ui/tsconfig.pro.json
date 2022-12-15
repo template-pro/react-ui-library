@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.pro.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": "src"
+  },
+  "references": [
+    { "path": "../utils" },
+    { "path": "../icons" },
+    { "path": "../rc-ui" }
+  ]
+}

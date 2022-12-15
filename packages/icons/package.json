@@ -1,0 +1,32 @@
+{
+  "name": "@template-pro/icons",
+  "version": "0.0.0",
+  "description": "统一 icon",
+  "author": "Wuxh<wxh1220@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "icon"
+  ],
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "clean": "gulp clean",
+    "build:svg": "gulp copy && svgr --template scripts/buildIconTemplate.js --typescript --out-dir src temp",
+    "build": "pnpm run clean && pnpm run build:svg && gulp",
+    "release": "bumpp --tag @template-pro/icons@%s --all --no-verify && pnpm publish"
+  },
+  "publishConfig": {
+    "registry": "http://nas.wxhboy.cn:98/"
+  },
+  "dependencies": {
+    "@template-pro/rc-ui": "workspace:^*"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^6.3.1"
+  }
+}
