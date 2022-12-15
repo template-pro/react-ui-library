@@ -1,5 +1,5 @@
-export type { BaseModalAction, BaseModalProps } from './base-modal';
-export { default as BaseModal } from './base-modal';
+export type { BaseModalAction, BaseModalProps } from './base-modal'
+export { default as BaseModal } from './base-modal'
 
 export type { IgnoreEmojiInputProps } from './ignore-emoji-input'
 export { default as IgnoreEmojiInput } from './ignore-emoji-input'

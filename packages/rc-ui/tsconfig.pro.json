@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.pro.json",
   "compilerOptions": {
     "rootDir": "src",
-    "baseUrl": "src",
+    "baseUrl": "src"
   },
-  "references": [{"path": "../utils"}],
+  "references": [{ "path": "../utils" }]
 }

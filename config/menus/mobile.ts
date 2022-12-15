@@ -1,8 +1,8 @@
-import { ComponentMenus } from ".";
+import type { ComponentMenus } from '.'
 
 const mobileComponent: ComponentMenus = {
   common: [
-    "src/button",
+    'src/button',
   ],
   layout: [],
   navigation: [],
@@ -11,5 +11,5 @@ const mobileComponent: ComponentMenus = {
   feedback: [],
   guidance: [],
   other: [],
-};
-export default mobileComponent;
+}
+export default mobileComponent

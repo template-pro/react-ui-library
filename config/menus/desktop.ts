@@ -1,4 +1,4 @@
-import { ComponentMenus } from ".";
+import type { ComponentMenus } from '.'
 
 const desktopComponent: ComponentMenus = {
   // common: ["src/button"],
@@ -18,10 +18,10 @@ const desktopComponent: ComponentMenus = {
   //   "src/select-member-modal"
   // ],
   feedback: [
-    "src/base-modal",
+    'src/base-modal',
   ],
   guidance: [],
   other: [],
-};
+}
 
-export default desktopComponent;
+export default desktopComponent

@@ -1,8 +1,8 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from 'react'
+import classNames from 'classnames'
 
-import { CustomIconComponentProps, IconProps } from './typings';
-import { svgBaseProps, useInsertStyles } from './utils';
+import type { CustomIconComponentProps, IconProps } from './typings'
+import { svgBaseProps, useInsertStyles } from './utils'
 
 const Icon = (props: IconProps) => {
   const {
@@ -16,53 +16,50 @@ const Icon = (props: IconProps) => {
     children,
     prefixCls = 'template-pro',
     ...restProps
-  } = props;
+  } = props
 
-  useInsertStyles();
+  useInsertStyles()
 
-  const classString = classNames(`${prefixCls}-icon`, className);
+  const classString = classNames(`${prefixCls}-icon`, className)
 
   const svgClassString = classNames({
     [`${prefixCls}-icon-spin`]: !!spin,
-  });
+  })
 
   const svgStyle = rotate
     ? {
-      msTransform: `rotate(${rotate}deg)`,
-      transform: `rotate(${rotate}deg)`,
-    }
-    : undefined;
+        msTransform: `rotate(${rotate}deg)`,
+        transform: `rotate(${rotate}deg)`,
+      }
+    : undefined
 
   const innerSvgProps: CustomIconComponentProps = {
     ...svgBaseProps,
     className: svgClassString,
     style: svgStyle,
     viewBox,
-  };
-
-  if (!viewBox) {
-    delete innerSvgProps.viewBox;
   }
 
+  if (!viewBox)
+    delete innerSvgProps.viewBox
+
   const renderInnerNode = (function () {
-    if (Component) {
-      return <Component {...innerSvgProps}>{children}</Component>;
-    }
+    if (Component)
+      return <Component {...innerSvgProps}>{children}</Component>
 
     if (children) {
       return (
         <svg {...innerSvgProps} viewBox={viewBox}>
           {children}
         </svg>
-      );
+      )
     }
-    return null;
-  }());;
+    return null
+  }())
 
-  let iconTabIndex = tabIndex;
-  if (iconTabIndex === undefined && onClick) {
-    iconTabIndex = -1;
-  }
+  let iconTabIndex = tabIndex
+  if (iconTabIndex === undefined && onClick)
+    iconTabIndex = -1
 
   return (
     <span
@@ -74,9 +71,9 @@ const Icon = (props: IconProps) => {
     >
       {renderInnerNode}
     </span>
-  );
-};
+  )
+}
 
-Icon.displayName = 'TemplateProIcon';
+Icon.displayName = 'TemplateProIcon'
 
-export default Icon;
+export default Icon

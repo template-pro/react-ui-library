@@ -10,13 +10,13 @@ function App() {
         { value: '大帅比' },
         { value: '酷毙了' },
       ]}
-      itemRender={(item) => (
+      itemRender={item => (
         <i className='__select-trigger__custom_render red'>{item.value}</i>
       )}
       separator={<i className='__select-trigger__custom_render green'>、</i>}
       style={{ width: 200 }}
     />
-  );
+  )
 }
 
-export default App;
+export default App

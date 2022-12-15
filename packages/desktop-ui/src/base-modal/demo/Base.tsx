@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef } from 'react'
 import { Button } from 'antd'
-import { BaseModal, BaseModalAction } from '@template-pro/desktop-ui';
+import type { BaseModalAction } from '@template-pro/desktop-ui'
+import { BaseModal } from '@template-pro/desktop-ui'
 
 const Content = ({ modalAction }: any) => (
   <>
@@ -9,11 +10,10 @@ const Content = ({ modalAction }: any) => (
       点击关闭弹框
     </Button>
   </>
-);
-
+)
 
 function BaseModalDemo() {
-  const modalRef = useRef<BaseModalAction>();
+  const modalRef = useRef<BaseModalAction>()
 
   return (
     <BaseModal
@@ -31,7 +31,7 @@ function BaseModalDemo() {
     >
       <Button>打开弹窗</Button>
     </BaseModal>
-  );
+  )
 }
 
-export default BaseModalDemo;
+export default BaseModalDemo

@@ -2,6 +2,13 @@
   "name": "@template-pro/mobile-ui",
   "version": "0.0.0",
   "description": "基于 antd-mobile@5.x 二次封装",
+  "author": "Wuxh<wxh1220@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "mobile",
+    "antd-mobile"
+  ],
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
@@ -13,13 +20,6 @@
     "build": "gulp",
     "release": "bumpp --tag @template-pro/mobile-ui@%s --all --no-verify && pnpm publish"
   },
-  "keywords": [
-    "react",
-    "mobile",
-    "antd-mobile"
-  ],
-  "author": "Wuxh<wxh1220@gmail.com>",
-  "license": "MIT",
   "peerDependencies": {
     "antd-mobile": "^5"
   },

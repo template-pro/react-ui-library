@@ -12,10 +12,10 @@ npm install @template-pro/icons
 /**
  * hideActions: ["CSB", "EXTERNAL"]
  */
-import React from "react";
-import { AddOutlined } from "@template-pro/icons";
+import React from 'react'
+import { AddOutlined } from '@template-pro/icons'
 
-export default () => <AddOutlined style={{ color: "#eb4e4e" }} />;
+export default () => <AddOutlined style={{ color: '#eb4e4e' }} />
 ```
 
 ## 图标列表

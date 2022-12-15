@@ -1,8 +1,9 @@
-import React from 'react';
-import Input, { InputProps } from 'antd/es/input';
-import type { ConditionInputProps, ConditionInputCoverProps } from '@template-pro/rc-ui';
-import { ConditionInput, } from '@template-pro/rc-ui';
-import { anyRule } from '@template-pro/utils';
+import React from 'react'
+import type { InputProps } from 'antd/es/input'
+import Input from 'antd/es/input'
+import type { ConditionInputCoverProps, ConditionInputProps } from '@template-pro/rc-ui'
+import { ConditionInput } from '@template-pro/rc-ui'
+import { anyRule } from '@template-pro/utils'
 
 export type IgnoreEmojiInputProps = Omit<InputProps, ConditionInputCoverProps> & Pick<ConditionInputProps, ConditionInputCoverProps>
 
@@ -15,7 +16,7 @@ function IgnoreEmojiInput(props: Omit<IgnoreEmojiInputProps, 'children'>) {
     defaultValue,
     onChange,
     ...restProps
-  } = props;
+  } = props
   return (
     <ConditionInput
       regexes={anyRule.reRgiEmoji}
@@ -25,8 +26,7 @@ function IgnoreEmojiInput(props: Omit<IgnoreEmojiInputProps, 'children'>) {
     >
       <Input {...restProps} />
     </ConditionInput>
-  );
+  )
 }
 
-export default Object.assign(IgnoreEmojiInput, { REGEX: anyRule.reRgiEmoji });
-
+export default Object.assign(IgnoreEmojiInput, { REGEX: anyRule.reRgiEmoji })

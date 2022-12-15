@@ -2,6 +2,11 @@
   "name": "@template-pro/utils",
   "version": "0.0.0",
   "description": "统一工具库，通用正则，react hooks 等工具",
+  "author": "Wuxh<wxh1220@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "utils"
+  ],
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
@@ -11,13 +16,8 @@
   ],
   "scripts": {
     "build": "gulp",
-    "release":"bumpp --tag @template-pro/utils@%s --all --no-verify && pnpm publish"
+    "release": "bumpp --tag @template-pro/utils@%s --all --no-verify && pnpm publish"
   },
-  "keywords": [
-    "utils"
-  ],
-  "author": "Wuxh<wxh1220@gmail.com>",
-  "license": "MIT",
   "publishConfig": {
     "registry": "http://nas.wxhboy.cn:98/"
   }

@@ -1,3 +1,3 @@
-const commonConfig = require('../../gulpfile');
+const commonConfig = require('../../gulpfile')
 
-exports.default = commonConfig.default;
+exports.default = commonConfig.default

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Form, InputNumber, Switch, message, Tabs, Card } from 'antd';
-import type { FormProps } from 'antd';
-import { TwitterPicker } from 'react-color';
-import { pick } from 'lodash-es';
-import iconsList from './iconsList';
-import './index.less';
+import React, { useState } from 'react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { Card, Form, InputNumber, Switch, Tabs, message } from 'antd'
+import type { FormProps } from 'antd'
+import { TwitterPicker } from 'react-color'
+import { pick } from 'lodash-es'
+import iconsList from './iconsList'
+import './index.less'
 
 const defaultProps = {
   color: '#eb4e4e',
-  width: 64
+  width: 64,
 }
 
-const { TabPane } = Tabs;
+const { TabPane } = Tabs
 
 const ColorPicker = (props: any) => {
   const { onChange, ...resetProps } = props
@@ -20,20 +20,20 @@ const ColorPicker = (props: any) => {
 }
 
 export default () => {
-  const [iconProps, setIconProps] = useState<any>(() => defaultProps);
+  const [iconProps, setIconProps] = useState<any>(() => defaultProps)
 
   const handleChange: FormProps['onValuesChange'] = (_, allValues) => {
-    setIconProps(allValues);
+    setIconProps(allValues)
   }
 
   const outlinedIcons = React.useMemo(
     () => iconsList.filter(({ displayName }) => displayName.endsWith('Outlined')),
-    [iconsList]
+    [iconsList],
   )
 
   const filledIcons = React.useMemo(
     () => iconsList.filter(({ displayName }) => displayName.endsWith('Filled')),
-    [iconsList]
+    [iconsList],
   )
 
   const configFormNode = (
@@ -52,8 +52,8 @@ export default () => {
 
   const renderIcon = React.useCallback(
     (icon: React.FunctionComponent<any>, index: number) => {
-      const copyText =
-        `<${icon.displayName} style={${JSON.stringify(pick(iconProps, ['width', 'color']))}} />`;
+      const copyText
+        = `<${icon.displayName} style={${JSON.stringify(pick(iconProps, ['width', 'color']))}} />`
 
       return (
         <CopyToClipboard
@@ -75,9 +75,8 @@ export default () => {
         </CopyToClipboard>
       )
     },
-    [iconProps]
+    [iconProps],
   )
-
 
   const tabs = React.useMemo(() => [
     { tab: '所有图标', key: 'all', list: iconsList },
@@ -100,5 +99,5 @@ export default () => {
         }
       </Tabs>
     </div>
-  );
-};
+  )
+}

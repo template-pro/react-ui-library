@@ -1,6 +1,6 @@
 export default [
   {
-    title: "Icons",
+    title: 'Icons',
     children: ['demo'],
-  }
+  },
 ]

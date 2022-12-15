@@ -11,7 +11,7 @@ function App() {
       ]}
       style={{ width: 200 }}
     />
-  );
+  )
 }
 
-export default App;
+export default App

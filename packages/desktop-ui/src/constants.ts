@@ -1,4 +1,4 @@
-export const defaultPrefixCls = "jgb-pc"
+export const defaultPrefixCls = 'jgb-pc'
 
 export const EMPTY_PLACEHOLDER_ = '-'
 

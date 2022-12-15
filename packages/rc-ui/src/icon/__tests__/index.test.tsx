@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, fireEvent } from '../../../../../tests/utils';
+import React from 'react'
+import { fireEvent, render } from '../../../../../tests/utils'
 
-import Icon from '..';
+import Icon from '..'
 
 describe('Icon', () => {
   it('should support pass svg paths as children', () => {
@@ -10,14 +10,14 @@ describe('Icon', () => {
         <title>Cool Home</title>
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
       </Icon>,
-    );
-    expect(container).toMatchSnapshot();
-  });
+    )
+    expect(container).toMatchSnapshot()
+  })
 
   it('should support event listeners when passing svg paths as children', () => {
-    const onClickHandler = jest.fn();
-    const onKeyUpHandler = jest.fn();
-    const onMouseEnterHandler = jest.fn();
+    const onClickHandler = jest.fn()
+    const onKeyUpHandler = jest.fn()
+    const onMouseEnterHandler = jest.fn()
 
     const { container, getByRole } = render(
       <Icon
@@ -29,39 +29,39 @@ describe('Icon', () => {
         <title>Cool Home</title>
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
       </Icon>,
-    );
-    expect(container).toMatchSnapshot();
+    )
+    expect(container).toMatchSnapshot()
 
-    const icon = getByRole('img') as HTMLSpanElement;
-    fireEvent.click(icon);
-    expect(onClickHandler).toBeCalledTimes(1);
-    fireEvent.mouseEnter(icon);
-    expect(onMouseEnterHandler).toBeCalledTimes(1);
-    fireEvent.keyUp(icon);
-    expect(onKeyUpHandler).toBeCalledTimes(1);
-  });
+    const icon = getByRole('img') as HTMLSpanElement
+    fireEvent.click(icon)
+    expect(onClickHandler).toBeCalledTimes(1)
+    fireEvent.mouseEnter(icon)
+    expect(onMouseEnterHandler).toBeCalledTimes(1)
+    fireEvent.keyUp(icon)
+    expect(onKeyUpHandler).toBeCalledTimes(1)
+  })
 
   it('should support custom usage of children', () => {
     expect(() => {
-      render(<Icon>&E648</Icon>);
-    }).not.toThrow();
-  });
+      render(<Icon>&E648</Icon>)
+    }).not.toThrow()
+  })
 
   it('support render svg as component', () => {
     const renderSvg = () => (
       <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor" />
-    );
-    const SvgIcon = (props: any) => <Icon component={renderSvg} {...props} />;
+    )
+    const SvgIcon = (props: any) => <Icon component={renderSvg} {...props} />
 
-    expect(render(<SvgIcon />).container).toMatchSnapshot();
-  });
+    expect(render(<SvgIcon />).container).toMatchSnapshot()
+  })
 
   describe('`component` prop', () => {
     it('can access to svg defs if has children', () => {
       const { container } = render(
         <Icon
           className="my-home-icon"
-          component={(svgProps) => (
+          component={(svgProps: any) => (
             <svg {...svgProps}>
               <defs>
                 <linearGradient id="gradient">
@@ -81,10 +81,10 @@ describe('Icon', () => {
           <title>Cool Home</title>
           <path d="'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'" />
         </Icon>,
-      );
-      expect(container).toMatchSnapshot();
-    });
-  });
+      )
+      expect(container).toMatchSnapshot()
+    })
+  })
 
   it('should support svg react component', () => {
     // children props would make no sense
@@ -93,28 +93,28 @@ describe('Icon', () => {
         <title>Custom Svg</title>
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
       </svg>
-    );
+    )
 
     const { container } = render(
       <Icon className="my-home-icon" component={SvgComponent}>
         <title>Cool Home</title>
         <path d="'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'" />
       </Icon>,
-    );
-    expect(container).toMatchSnapshot();
-  });
+    )
+    expect(container).toMatchSnapshot()
+  })
 
   it('should support event listeners', () => {
-    const onClickHandler = jest.fn();
-    const onKeyUpHandler = jest.fn();
-    const onMouseEnterHandler = jest.fn();
+    const onClickHandler = jest.fn()
+    const onKeyUpHandler = jest.fn()
+    const onMouseEnterHandler = jest.fn()
     // children props would make no sense
     const SvgComponent = (props: any) => (
       <svg viewBox="0 0 24 24" {...props}>
         <title>Custom Svg</title>
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
       </svg>
-    );
+    )
 
     const { container, getByRole } = render(
       <Icon
@@ -127,25 +127,25 @@ describe('Icon', () => {
         <title>Cool Home</title>
         <path d="'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'" />
       </Icon>,
-    );
-    expect(container).toMatchSnapshot();
+    )
+    expect(container).toMatchSnapshot()
 
-    const icon = getByRole('img') as HTMLSpanElement;
-    fireEvent.click(icon);
-    expect(onClickHandler).toBeCalledTimes(1);
-    fireEvent.mouseEnter(icon);
-    expect(onMouseEnterHandler).toBeCalledTimes(1);
-    fireEvent.keyUp(icon);
-    expect(onKeyUpHandler).toBeCalledTimes(1);
-  });
-});
+    const icon = getByRole('img') as HTMLSpanElement
+    fireEvent.click(icon)
+    expect(onClickHandler).toBeCalledTimes(1)
+    fireEvent.mouseEnter(icon)
+    expect(onMouseEnterHandler).toBeCalledTimes(1)
+    fireEvent.keyUp(icon)
+    expect(onKeyUpHandler).toBeCalledTimes(1)
+  })
+})
 
 describe('Render with styles', () => {
   it('icon style will inset top of head', () => {
-    const head = document.querySelector('head')!;
-    const meta = document.createElement('meta')!;
-    head.appendChild(meta);
-    render(<Icon component={'Antd' as any} />);
-    expect(head.firstElementChild?.tagName).toBe('STYLE');
+    const head = document.querySelector('head')!
+    const meta = document.createElement('meta')!
+    head.appendChild(meta)
+    render(<Icon component={'Antd' as any} />)
+    expect(head.firstElementChild?.tagName).toBe('STYLE')
   })
-});
+})

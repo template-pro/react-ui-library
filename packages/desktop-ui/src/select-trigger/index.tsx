@@ -1,43 +1,45 @@
-import DisabledContext from 'antd/es/config-provider/DisabledContext';
-import SizeContext, { SizeType } from 'antd/es/config-provider/SizeContext';
-import { FormItemInputContext } from 'antd/es/form/context';
+import DisabledContext from 'antd/es/config-provider/DisabledContext'
+import type { SizeType } from 'antd/es/config-provider/SizeContext'
+import SizeContext from 'antd/es/config-provider/SizeContext'
+import { FormItemInputContext } from 'antd/es/form/context'
 import { CloseCircleFilled } from '@template-pro/icons'
-import classNames from 'classnames';
-import React, { useContext } from 'react';
-import { defaultPrefixCls } from '../constants';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_utils/statusUtils';
+import classNames from 'classnames'
+import React, { useContext } from 'react'
+import { defaultPrefixCls } from '../constants'
+import type { InputStatus } from '../_utils/statusUtils'
+import { getMergedStatus, getStatusClassNames } from '../_utils/statusUtils'
 
-type Value = Record<string, any>;
+type Value = Record<string, any>
 
 export interface SelectTriggerProps<V extends Value = Value> {
-  value?: string | V[],
-  allowClear?: boolean,
-  onClear?: () => void,
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void,
-  disabled?: boolean,
-  itemRender?: (item: V, index: number) => React.ReactNode,
+  value?: string | V[]
+  allowClear?: boolean
+  onClear?: () => void
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
+  disabled?: boolean
+  itemRender?: (item: V, index: number) => React.ReactNode
   /**
    * @default 、
    */
-  separator?: React.ReactNode,
-  className?: string,
-  placeholder?: string,
+  separator?: React.ReactNode
+  className?: string
+  placeholder?: string
   /**
    * @default large
    */
-  size?: SizeType;
-  style?: React.CSSProperties;
-  status?: InputStatus;
+  size?: SizeType
+  style?: React.CSSProperties
+  status?: InputStatus
   /**
    * @default 选择
    */
-  selectText?: string;
+  selectText?: string
 }
 
-const prefixedClassName = `${defaultPrefixCls}-select-trigger`;
+const prefixedClassName = `${defaultPrefixCls}-select-trigger`
 
 function SelectTrigger<V extends Value>(
-  props: SelectTriggerProps<V>
+  props: SelectTriggerProps<V>,
 ) {
   const {
     value,
@@ -53,39 +55,37 @@ function SelectTrigger<V extends Value>(
     style,
     status: customStatus,
     selectText = '选择',
-  } = props;
+  } = props
 
-  const disabled = useContext(DisabledContext);
-  const { status: contextStatus } = useContext(FormItemInputContext);
-  const size = useContext(SizeContext);
-  const mergedStatus = getMergedStatus(contextStatus, customStatus);
-  const mergedSize = customSize || size;
+  const disabled = useContext(DisabledContext)
+  const { status: contextStatus } = useContext(FormItemInputContext)
+  const size = useContext(SizeContext)
+  const mergedStatus = getMergedStatus(contextStatus, customStatus)
+  const mergedSize = customSize || size
 
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled || disabled
 
   const values = (Array.isArray(value) ? value : [{ value } as any])
     .reduce((nodes, item, index, _values) => {
-      const itemNode = itemRender(item, index);
+      const itemNode = itemRender(item, index)
 
       if (itemNode) {
-        nodes.push(itemNode);
+        nodes.push(itemNode)
 
-        if (nodes.length % 2 && index < _values.length - 1) {
-          nodes.push(separator);
-        }
+        if (nodes.length % 2 && index < _values.length - 1)
+          nodes.push(separator)
       }
 
-      return nodes;
-    }, []);
+      return nodes
+    }, [])
 
   const clickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!mergedDisabled) {
-      onClick?.(event);
-    }
-  };
+    if (!mergedDisabled)
+      onClick?.(event)
+  }
 
-  const showValues = values.length > 0;
-  const showClearIcon = allowClear && !mergedDisabled && showValues;
+  const showValues = values.length > 0
+  const showClearIcon = allowClear && !mergedDisabled && showValues
 
   return (
     <div
@@ -98,7 +98,7 @@ function SelectTrigger<V extends Value>(
           [`${prefixedClassName}-size__md`]: mergedSize === 'middle',
         },
         className,
-        getStatusClassNames(prefixedClassName, mergedStatus)
+        getStatusClassNames(prefixedClassName, mergedStatus),
       )}
       onClick={clickHandler}
       tabIndex={0}
@@ -113,7 +113,7 @@ function SelectTrigger<V extends Value>(
         <span
           className={classNames(
             `${prefixedClassName}-select-text`,
-            { [`${prefixedClassName}-select-text-control`]: showClearIcon }
+            { [`${prefixedClassName}-select-text-control`]: showClearIcon },
           )}
         >
           {selectText}
@@ -123,15 +123,15 @@ function SelectTrigger<V extends Value>(
             <CloseCircleFilled
               style={{ width: 16, height: 16, color: '#b7b7b7' }}
               onClick={(event: any) => {
-                event.stopPropagation();
-                onClear?.();
+                event.stopPropagation()
+                onClear?.()
               }}
             />
           </i>
         )}
       </span>
     </div>
-  );
+  )
 }
 
-export default SelectTrigger;
+export default SelectTrigger

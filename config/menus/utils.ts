@@ -1,11 +1,11 @@
 const utilsMenu = [
   {
-    title: "General",
-    children: ["src/with-default-props"],
+    title: 'General',
+    children: ['src/with-default-props'],
   },
   {
-    title: "React Hooks",
-    children: ["src/use-props-value"],
+    title: 'React Hooks',
+    children: ['src/use-props-value'],
   },
   // {
   //   title: "Date & Time",
@@ -15,6 +15,6 @@ const utilsMenu = [
   //   title: "String",
   //   children: [],
   // },
-];
+]
 
-export default utilsMenu;
+export default utilsMenu

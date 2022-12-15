@@ -1,1 +1,1 @@
-export * from "./reRgiemoji";
+export * from './reRgiemoji'

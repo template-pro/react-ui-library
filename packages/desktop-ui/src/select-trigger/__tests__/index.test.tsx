@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import SelectTrigger from '..'
-import { fireEvent, render } from '../../../../../tests/utils';
-import { defaultPrefixCls } from '../../constants';
+import { fireEvent, render } from '../../../../../tests/utils'
+import { defaultPrefixCls } from '../../constants'
 
 describe('SelectTrigger', () => {
   it('正确 render', () => {

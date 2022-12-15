@@ -1,30 +1,30 @@
-import Modal, { type ModalProps } from 'antd/es/modal';
-import { useBoolean } from 'ahooks';
-import classNames from 'classnames';
-import React, { useImperativeHandle, useRef } from 'react';
-import { defaultPrefixCls } from '../constants';
+import Modal, { type ModalProps } from 'antd/es/modal'
+import { useBoolean } from 'ahooks'
+import classNames from 'classnames'
+import React, { useImperativeHandle, useRef } from 'react'
+import { defaultPrefixCls } from '../constants'
 
 export interface BaseModalAction {
-  close: () => void;
-  open: () => void;
+  close: () => void
+  open: () => void
 }
 
 export interface BaseModalProps {
-  children?: React.ReactElement;
-  modalContent?: React.ReactElement;
+  children?: React.ReactElement
+  modalContent?: React.ReactElement
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
     modalAction: BaseModalAction
-  ) => void;
-  modalProps?: ModalProps;
+  ) => void
+  modalProps?: ModalProps
 }
 
 const BaseModal: React.ForwardRefRenderFunction<unknown, BaseModalProps> = (props, ref) => {
-  const [modalVisible, { setTrue: open, setFalse: close }] = useBoolean(false);
+  const [modalVisible, { setTrue: open, setFalse: close }] = useBoolean(false)
 
-  const modalActionRef = useRef<BaseModalAction>({ open, close });
+  const modalActionRef = useRef<BaseModalAction>({ open, close })
 
-  const { children, modalContent, onClick, modalProps = {} } = props;
+  const { children, modalContent, onClick, modalProps = {} } = props
 
   const {
     onOk,
@@ -32,42 +32,42 @@ const BaseModal: React.ForwardRefRenderFunction<unknown, BaseModalProps> = (prop
     className,
     footer = null,
     ...restModalProps
-  } = modalProps;
+  } = modalProps
 
-  useImperativeHandle(ref, () => modalActionRef.current, [modalActionRef]);
+  useImperativeHandle(ref, () => modalActionRef.current, [modalActionRef])
 
   const handleButtonClick = (e: React.MouseEvent<HTMLElement>) => {
-    if (onClick) {
-      return onClick(e, modalActionRef.current);
-    }
-    return open();
-  };
+    if (onClick)
+      return onClick(e, modalActionRef.current)
+
+    return open()
+  }
 
   const handleModalOk = (e: React.MouseEvent<HTMLElement>) => {
-    if (onOk) {
-      return onOk(e);
-    }
-    return close();
-  };
+    if (onOk)
+      return onOk(e)
+
+    return close()
+  }
 
   const handleModalCancel = (e: React.MouseEvent<HTMLElement>) => {
-    if (onCancel) {
-      onCancel(e);
-    }
-    return close();
-  };
+    if (onCancel)
+      onCancel(e)
 
-  const buttonNode =
-    children && React.cloneElement(children, { onClick: handleButtonClick });
+    return close()
+  }
 
-  const childrenNode =
-    modalContent && React.cloneElement(modalContent, { modalAction: modalActionRef.current });
+  const buttonNode
+    = children && React.cloneElement(children, { onClick: handleButtonClick })
+
+  const childrenNode
+    = modalContent && React.cloneElement(modalContent, { modalAction: modalActionRef.current })
 
   return (
     <>
       {buttonNode}
       <Modal
-        visible={modalVisible}
+        open={modalVisible}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
         centered
@@ -79,7 +79,7 @@ const BaseModal: React.ForwardRefRenderFunction<unknown, BaseModalProps> = (prop
         {childrenNode}
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default React.forwardRef(BaseModal);
+export default React.forwardRef(BaseModal)

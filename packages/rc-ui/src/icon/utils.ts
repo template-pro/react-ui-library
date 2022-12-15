@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import { insertCss } from 'insert-css';
+import { useEffect } from 'react'
+import { insertCss } from 'insert-css'
 
 export const svgBaseProps = {
   // width: '1em',
   // height: '1em',
-  fill: 'currentColor',
+  'fill': 'currentColor',
   'aria-hidden': 'true',
-  focusable: 'false',
-};
+  'focusable': 'false',
+}
 
 export const iconStyles = `
 .template-pro-icon {
@@ -64,17 +64,17 @@ export const iconStyles = `
     transform: rotate(360deg);
   }
 }
-`;
+`
 
-let cssInjectedFlag = false;
+let cssInjectedFlag = false
 
 export const useInsertStyles = (styleStr = iconStyles) => {
   useEffect(() => {
     if (!cssInjectedFlag) {
       insertCss(styleStr, {
         prepend: true,
-      });
-      cssInjectedFlag = true;
+      })
+      cssInjectedFlag = true
     }
-  }, []);
-};
+  }, [])
+}

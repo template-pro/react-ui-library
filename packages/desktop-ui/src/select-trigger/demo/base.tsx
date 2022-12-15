@@ -8,7 +8,7 @@ function App() {
       style={{ width: 200 }}
       allowClear
     />
-  );
+  )
 }
 
-export default App;
+export default App

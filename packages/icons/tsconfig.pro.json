@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.pro.json",
   "compilerOptions": {
     "rootDir": "src",
-    "baseUrl": "src",
+    "baseUrl": "src"
   },
-  "references": [{"path": "../rc-ui"}],
+  "references": [{ "path": "../rc-ui" }]
 }

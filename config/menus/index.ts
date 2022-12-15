@@ -1,8 +1,8 @@
-import desktopComponents from './desktop';
-import mobileComponents from './mobile';
-import utilsMenus from './utils';
+import desktopComponents from './desktop'
+import mobileComponents from './mobile'
+import utilsMenus from './utils'
 import rcUiMenus from './rcui'
-import iconsMenus from './icons';
+import iconsMenus from './icons'
 
 const enumText = {
   common: '通用',
@@ -16,35 +16,34 @@ const enumText = {
   experimental: '试验性',
 } as const
 
-export type MenusKeys = keyof typeof enumText;
+export type MenusKeys = keyof typeof enumText
 export type ComponentMenus = {
   [key in MenusKeys]?: Array<string>
 }
 
 function generateComponentMenus(menus: ComponentMenus, prefix: string) {
-  let _menus: any[] = [];
+  const _menus: any[] = []
   Object.entries(menus).forEach(([key, value]) => {
-    if (value.length) {
-      _menus.push({ title: enumText[key as MenusKeys], children: value, })
-    }
+    if (value.length)
+      _menus.push({ title: enumText[key as MenusKeys], children: value })
   })
-  return addPrefix(_menus, prefix);
+  return addPrefix(_menus, prefix)
 }
 
 function addPrefix(menus: any[], prefix: string) {
-  return menus.map(item => {
-    if (item.children) {
-      item.children = item.children.map((child: string) => `${prefix}/${child}`);
-    }
-    return item;
+  return menus.map((item) => {
+    if (item.children)
+      item.children = item.children.map((child: string) => `${prefix}/${child}`)
+
+    return item
   })
 }
 
-export const desktopPrefix = 'desktop-ui';
-export const mobilePrefix = 'mobile-ui';
-export const utilsPrefix = "utils";
-export const rcUiPrefix = 'rc-ui';
-export const iconsPrefix= 'icons'
+export const desktopPrefix = 'desktop-ui'
+export const mobilePrefix = 'mobile-ui'
+export const utilsPrefix = 'utils'
+export const rcUiPrefix = 'rc-ui'
+export const iconsPrefix = 'icons'
 
 export const menus = {
   [`/${desktopPrefix}`]: generateComponentMenus(desktopComponents, desktopPrefix),

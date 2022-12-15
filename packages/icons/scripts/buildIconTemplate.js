@@ -1,12 +1,12 @@
 const template = (variables, { tpl }) => {
-  let {
+  const {
     componentName,
     imports,
     interfaces,
     jsx,
-    exports
+    exports,
   } = variables
-  
+
   return tpl`
 ${imports};
 

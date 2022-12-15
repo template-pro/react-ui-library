@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-import { Row, Col, Radio } from 'antd'
+import React from 'react'
+import { Col, Radio, Row } from 'antd'
 import { mergeProps } from '@template-pro/utils'
 
 const Play = () => {
-  const [targetValue, setTargetValue] = React.useState({ value: void 0 })
+  const [targetValue, setTargetValue] = React.useState({ value: undefined })
   const [sourceValue, setSourceValue] = React.useState({ value: null })
 
   const plainOptions = [
-    { label: 'Undefined', value: void 0 },
+    { label: 'Undefined', value: undefined },
     { label: 'Null', value: null },
     { label: 'Empty String', value: '' },
     { label: 'Empty Array', value: [] },

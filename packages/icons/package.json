@@ -2,6 +2,11 @@
   "name": "@template-pro/icons",
   "version": "0.0.0",
   "description": "统一 icon",
+  "author": "Wuxh<wxh1220@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "icon"
+  ],
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
@@ -15,18 +20,13 @@
     "build": "pnpm run clean && pnpm run build:svg && gulp",
     "release": "bumpp --tag @template-pro/icons@%s --all --no-verify && pnpm publish"
   },
-  "keywords": [
-    "icon"
-  ],
-  "author": "Wuxh<wxh1220@gmail.com>",
-  "license": "MIT",
   "publishConfig": {
     "registry": "http://nas.wxhboy.cn:98/"
   },
-  "devDependencies": {
-    "@svgr/cli": "^6.3.1"
-  },
   "dependencies": {
     "@template-pro/rc-ui": "workspace:^*"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^6.3.1"
   }
 }

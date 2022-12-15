@@ -1,11 +1,10 @@
-import React from 'react';
-import { ConditionInput } from '@template-pro/rc-ui';
+import React from 'react'
+import { ConditionInput } from '@template-pro/rc-ui'
 
 const App = () => {
-
   const onChange = (value: string) => {
-    console.log('返回值:', value);
-  };
+    console.log('返回值:', value)
+  }
 
   return (
     <>
@@ -13,7 +12,6 @@ const App = () => {
       <ConditionInput regexes={/[^\dA-Za-z]+/g} onChange={onChange} >
         <input type="text" />
       </ConditionInput>
-
 
       <p>多个正则(前后不允许空格且不能能输入数字)</p>
       <ConditionInput regexes={['\\s', /\d/g]} onChange={onChange} >
@@ -28,7 +26,7 @@ const App = () => {
         <input type="text" />
       </ConditionInput>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

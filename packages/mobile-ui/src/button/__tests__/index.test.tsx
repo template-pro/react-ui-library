@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import Button from '..'
-import { render, fireEvent, } from '../../../../../tests/utils';
+import { fireEvent, render } from '../../../../../tests/utils'
 
 describe('Button Props', () => {
   it('custom classname should take effect', () => {
@@ -9,13 +9,13 @@ describe('Button Props', () => {
   })
 
   it('click under disable should not trigger click event', () => {
-    const onClick = jest.fn();
+    const onClick = jest.fn()
     const { container } = render(
       <Button onClick={onClick} disabled>
         click me
       </Button>,
-    );
-    fireEvent.click(container.firstChild!);
-    expect(onClick).not.toHaveBeenCalled();
-  });
+    )
+    fireEvent.click(container.firstChild!)
+    expect(onClick).not.toHaveBeenCalled()
+  })
 })

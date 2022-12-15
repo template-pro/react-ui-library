@@ -1,24 +1,24 @@
-import Input from 'antd/es/input';
-import type { InputProps } from 'antd/es/input';
-import React from 'react';
-import { ConditionInput } from '@template-pro/rc-ui';
-import { defaultPrefixCls } from '../constants';
-import classNames from 'classnames';
-import { useBoolean, useClickAway, useControllableValue } from 'ahooks';
+import Input from 'antd/es/input'
+import type { InputProps } from 'antd/es/input'
+import React from 'react'
+import { ConditionInput } from '@template-pro/rc-ui'
+import classNames from 'classnames'
+import { useBoolean, useClickAway, useControllableValue } from 'ahooks'
+import { defaultPrefixCls } from '../constants'
 
-export type SearchResultAction = {
-  close: (clearKeyword?: boolean) => void;
+export interface SearchResultAction {
+  close: (clearKeyword?: boolean) => void
 }
 
 export interface SearchResultProps {
   children?: React.ReactNode
-  onSearch?: (value: string) => void;
+  onSearch?: (value: string) => void
   searchInput?: InputProps
   className?: string
   resultWrapperClassName?: string
 }
 
-const prefixedClassName = `${defaultPrefixCls}-search-result`;
+const prefixedClassName = `${defaultPrefixCls}-search-result`
 
 const SearchResult = (props: SearchResultProps, ref: React.Ref<SearchResultAction>) => {
   const {
@@ -27,30 +27,30 @@ const SearchResult = (props: SearchResultProps, ref: React.Ref<SearchResultActio
     onSearch,
     className,
     resultWrapperClassName,
-  } = props;
+  } = props
 
   const [keyword, setKeyword] = useControllableValue(
-    { onChange: onSearch }, { defaultValue: '' }
-  );
+    { onChange: onSearch }, { defaultValue: '' },
+  )
 
-  const searchResultRef = React.useRef<HTMLDivElement>(null);
+  const searchResultRef = React.useRef<HTMLDivElement>(null)
   const [visibleDropdown, {
     setTrue: openDropdown,
     setFalse: closeDropdown,
-  }] = useBoolean(false);
+  }] = useBoolean(false)
 
-  useClickAway(closeDropdown, searchResultRef);
+  useClickAway(closeDropdown, searchResultRef)
 
-  const showChildren = keyword.length > 0 && visibleDropdown;
+  const showChildren = keyword.length > 0 && visibleDropdown
 
   const handlerClose = (clearKeyword?: boolean) => {
-    if (clearKeyword) {
-      setKeyword('');
-    }
-    closeDropdown();
-  };
+    if (clearKeyword)
+      setKeyword('')
 
-  React.useImperativeHandle(ref, () => ({ close: handlerClose }), []);
+    closeDropdown()
+  }
+
+  React.useImperativeHandle(ref, () => ({ close: handlerClose }), [])
 
   return (
     <div
@@ -58,7 +58,7 @@ const SearchResult = (props: SearchResultProps, ref: React.Ref<SearchResultActio
       ref={searchResultRef}
     >
       <ConditionInput
-        formatter={(value) => value.trim()}
+        formatter={value => value.trim()}
         value={keyword}
         onChange={setKeyword}
       >
@@ -78,7 +78,7 @@ const SearchResult = (props: SearchResultProps, ref: React.Ref<SearchResultActio
         )
       }
     </div>
-  );
-};
+  )
+}
 
-export default React.forwardRef(SearchResult);
+export default React.forwardRef(SearchResult)

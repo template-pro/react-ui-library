@@ -1,9 +1,10 @@
-import React from 'react';
-import AntmButton, { ButtonProps as AntmButtonProps } from 'antd-mobile/es/components/button';
-import classNames from 'classnames';
-import { defaultPrefixCls } from '../constants';
+import React from 'react'
+import type { ButtonProps as AntmButtonProps } from 'antd-mobile/es/components/button'
+import AntmButton from 'antd-mobile/es/components/button'
+import classNames from 'classnames'
+import { defaultPrefixCls } from '../constants'
 
-type ButtonProps = AntmButtonProps;
+type ButtonProps = AntmButtonProps
 
 const Button = (props: ButtonProps) => {
   const { className, ...resetProps } = props
@@ -15,5 +16,5 @@ const Button = (props: ButtonProps) => {
   )
 }
 
-export type { ButtonProps };
-export default Button;
+export type { ButtonProps }
+export default Button

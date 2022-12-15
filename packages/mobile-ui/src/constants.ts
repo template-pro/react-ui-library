@@ -1,1 +1,1 @@
-export const defaultPrefixCls = "jgb-m"
+export const defaultPrefixCls = 'jgb-m'

@@ -8,10 +8,10 @@
 /**
  * hideActions: ["CSB", "EXTERNAL"]
  */
-import React from "react";
-import { NumberOnlyInput } from "@template-pro/desktop-ui";
+import React from 'react'
+import { NumberOnlyInput } from '@template-pro/desktop-ui'
 
 export default () => (
   <NumberOnlyInput placeholder="请输入手机号" maxLength={11} />
-);
+)
 ```

@@ -18,11 +18,11 @@ export default () => {
   const debounceKeyword = useDebounce(keyword, { wait: 500 })
 
   const results = React.useMemo(() => {
-    if (!debounceKeyword) {
+    if (!debounceKeyword)
       return []
-    }
+
     return mockData.filter(
-      (item) => item.toUpperCase().includes(debounceKeyword.toUpperCase())
+      item => item.toUpperCase().includes(debounceKeyword.toUpperCase()),
     )
   }, [debounceKeyword])
 
@@ -30,7 +30,7 @@ export default () => {
     <SearchResult onSearch={setKeyword}>
       {
         results.length
-          ? results.map((item) => <p key={item}>{item}</p>)
+          ? results.map(item => <p key={item}>{item}</p>)
           : <div className="empty">未匹配到搜索结果</div> // empty 是预设的样式
       }
     </SearchResult>

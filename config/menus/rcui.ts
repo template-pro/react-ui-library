@@ -1,9 +1,9 @@
 export default [
   {
-    title: "General",
+    title: 'General',
     children: [
-      "src/condition-input",
-      "src/icon"
+      'src/condition-input',
+      'src/icon',
     ],
-  }
+  },
 ]

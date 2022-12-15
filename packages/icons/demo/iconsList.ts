@@ -1,3 +1,3 @@
-import * as allIcons from '../src';
+import * as allIcons from '../src'
 
-export default Object.values(allIcons);
+export default Object.values(allIcons)

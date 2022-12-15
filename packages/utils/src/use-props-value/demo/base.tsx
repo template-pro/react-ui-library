@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { usePropsValue } from '@template-pro/utils'
-import { useState } from 'react'
 
 interface Props<T = string> {
-  value?: T,
-  onChange?: (value: T) => void,
-  defaultValue?: T,
+  value?: T
+  onChange?: (value: T) => void
+  defaultValue?: T
 }
 
 function MyInput(props: Props) {
@@ -17,7 +16,7 @@ function MyInput(props: Props) {
     defaultValue: defaultValue ?? '',
   })
 
-  return <input value={state} onChange={(event) => setState(event.target.value)} />
+  return <input value={state} onChange={event => setState(event.target.value)} />
 }
 
 function App() {
