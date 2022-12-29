@@ -3,6 +3,7 @@ import { useBoolean } from 'ahooks'
 import classNames from 'classnames'
 import React, { useImperativeHandle, useRef } from 'react'
 import { defaultPrefixCls } from '../constants'
+import { isDOMTypeElement, isElement } from '../_utils/is'
 
 export interface BaseModalAction {
   close: () => void
@@ -10,8 +11,8 @@ export interface BaseModalAction {
 }
 
 export interface BaseModalProps {
-  children?: React.ReactElement
-  modalContent?: React.ReactElement
+  children?: React.ReactNode
+  modalContent?: React.ReactNode
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
     modalAction: BaseModalAction
@@ -36,32 +37,39 @@ const BaseModal: React.ForwardRefRenderFunction<unknown, BaseModalProps> = (prop
 
   useImperativeHandle(ref, () => modalActionRef.current, [modalActionRef])
 
-  const handleButtonClick = (e: React.MouseEvent<HTMLElement>) => {
+  const handleButtonClick = (event: React.MouseEvent<HTMLElement>) => {
     if (onClick)
-      return onClick(e, modalActionRef.current)
+      return onClick(event, modalActionRef.current)
 
     return open()
   }
 
-  const handleModalOk = (e: React.MouseEvent<HTMLElement>) => {
+  const handleModalOk = (event: React.MouseEvent<HTMLElement>) => {
     if (onOk)
-      return onOk(e)
+      return onOk(event)
 
     return close()
   }
 
-  const handleModalCancel = (e: React.MouseEvent<HTMLElement>) => {
+  const handleModalCancel = (event: React.MouseEvent<HTMLElement>) => {
     if (onCancel)
-      onCancel(e)
+      onCancel(event)
 
     return close()
   }
 
-  const buttonNode
-    = children && React.cloneElement(children, { onClick: handleButtonClick })
+  // ======================== buttonNode ========================
+  let buttonNode: React.ReactNode = children
+  if (React.isValidElement(children))
+    buttonNode = React.cloneElement<any>(children, { onClick: handleButtonClick })
 
-  const childrenNode
-    = modalContent && React.cloneElement(modalContent, { modalAction: modalActionRef.current })
+  // ======================== modalContent ========================
+  let childrenNode: React.ReactNode = modalContent
+  if (isElement(childrenNode) && !isDOMTypeElement(childrenNode)) {
+    childrenNode = React.cloneElement<any>(childrenNode, {
+      modalAction: modalActionRef.current,
+    })
+  }
 
   return (
     <>
