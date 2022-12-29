@@ -14,6 +14,7 @@ const desktopComponent: ComponentMenus = {
   ],
   feedback: [
     'src/base-modal',
+    'src/base-drawer',
   ],
   guidance: [],
   other: [],
