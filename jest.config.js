@@ -16,5 +16,6 @@ module.exports = {
     // '\\.(css|less)$/': 'identity-obj-proxy',
     '\\.(css|less)$': '<rootDir>/tests/mocks/style-mock.js',
     '^lodash-es$': 'lodash',
+    '^rc-util/es/(.*)$': 'rc-util/lib/$1',
   },
 }
