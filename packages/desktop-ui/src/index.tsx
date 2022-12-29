@@ -1,6 +1,9 @@
 export type { BaseModalAction, BaseModalProps } from './base-modal'
 export { default as BaseModal } from './base-modal'
 
+export type { BaseDrawerProps, BaseDrawerAction } from './base-drawer'
+export { default as BaseDrawer } from './base-drawer'
+
 export type { IgnoreEmojiInputProps } from './ignore-emoji-input'
 export { default as IgnoreEmojiInput } from './ignore-emoji-input'
 
