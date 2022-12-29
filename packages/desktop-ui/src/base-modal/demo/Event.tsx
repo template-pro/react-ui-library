@@ -5,7 +5,7 @@ import { Button, message } from 'antd'
 function BaseModalBaseDemo() {
   return (
     <BaseModal
-      modalContent={<>这是弹窗内容</>}
+      modalContent="这是弹窗内容"
       onClick={(event, modalAction) => {
         window.console.log({ event, modalAction })
         message.info({
