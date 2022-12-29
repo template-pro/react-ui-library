@@ -28,11 +28,7 @@ export default () => {
 
   return (
     <SearchResult onSearch={setKeyword}>
-      {
-        results.length
-          ? results.map(item => <p key={item}>{item}</p>)
-          : <div className="empty">未匹配到搜索结果</div> // empty 是预设的样式
-      }
+      {results.map(item => <p key={item}>{item}</p>)}
     </SearchResult>
   )
 }

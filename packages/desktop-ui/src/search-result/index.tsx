@@ -1,7 +1,10 @@
 import Input from 'antd/es/input'
+import defaultRenderEmpty from 'antd/es/config-provider/defaultRenderEmpty'
+import { ConfigContext } from 'antd/es/config-provider/context'
 import type { InputProps } from 'antd/es/input'
 import React from 'react'
 import { ConditionInput } from '@template-pro/rc-ui'
+import toArray from 'rc-util/es/Children/toArray'
 import classNames from 'classnames'
 import { useBoolean, useClickAway, useControllableValue } from 'ahooks'
 import { defaultPrefixCls } from '../constants'
@@ -33,6 +36,8 @@ const SearchResult = (props: SearchResultProps, ref: React.Ref<SearchResultActio
     { onChange: onSearch }, { defaultValue: '' },
   )
 
+  const { renderEmpty } = React.useContext(ConfigContext)
+
   const searchResultRef = React.useRef<HTMLDivElement>(null)
   const [visibleDropdown, {
     setTrue: openDropdown,
@@ -51,6 +56,8 @@ const SearchResult = (props: SearchResultProps, ref: React.Ref<SearchResultActio
   }
 
   React.useImperativeHandle(ref, () => ({ close: handlerClose }), [])
+
+  const arrayChildren = toArray(children)
 
   return (
     <div
@@ -73,7 +80,11 @@ const SearchResult = (props: SearchResultProps, ref: React.Ref<SearchResultActio
       {
         showChildren && (
           <div className={classNames(`${prefixedClassName}-result-wrapper`, resultWrapperClassName)}>
-            {children}
+            {
+              arrayChildren.length
+                ? arrayChildren
+                : (renderEmpty || defaultRenderEmpty)('SearchResult')
+            }
           </div>
         )
       }
