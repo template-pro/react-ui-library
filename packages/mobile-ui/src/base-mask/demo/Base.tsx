@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import type { UseModalEnhancedAction, UseModalEnhancedContext } from '@template-pro/mobile-ui'
-import { BaseMask, Button } from '@template-pro/mobile-ui'
+import { BaseMask } from '@template-pro/mobile-ui'
+import { Button } from 'antd-mobile'
 import styles from './style.less'
 
 const Content = ({ enhancedAction }: Partial<UseModalEnhancedContext>) => (

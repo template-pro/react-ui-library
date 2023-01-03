@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import type { UseModalEnhancedAction, UseModalEnhancedContext } from '@template-pro/mobile-ui'
-import { BasePopup, Button } from '@template-pro/mobile-ui'
+import { BasePopup } from '@template-pro/mobile-ui'
+import { Button } from 'antd-mobile'
 
 const Content = ({ enhancedAction }: Partial<UseModalEnhancedContext>) => (
   <div style={{ padding: 24 }}>

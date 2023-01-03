@@ -1,9 +1,7 @@
 import type { ComponentMenus } from '.'
 
 const mobileComponent: ComponentMenus = {
-  common: [
-    'src/button',
-  ],
+  common: [],
   layout: [],
   navigation: [],
   dataDisplay: [],
