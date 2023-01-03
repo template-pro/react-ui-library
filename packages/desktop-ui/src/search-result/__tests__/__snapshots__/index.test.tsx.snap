@@ -3,7 +3,7 @@
 exports[`SearchResult should work 1`] = `
 <div>
   <div
-    class="temp-pc-search-result"
+    class="template-pro__pc-search-result"
   >
     <input
       class="ant-input ant-input-borderless"
