@@ -1,6 +1,6 @@
 import React from 'react'
-import { BasePopup, Button } from '@template-pro/mobile-ui'
-import { Toast } from 'antd-mobile'
+import { BasePopup } from '@template-pro/mobile-ui'
+import { Button, Toast } from 'antd-mobile'
 
 export default () => (
   <>
