@@ -2,18 +2,16 @@ import React from 'react'
 import { BaseModal } from '@template-pro/desktop-ui'
 import { Button, message } from 'antd'
 
-function BaseModalBaseDemo() {
+function App() {
   return (
     <BaseModal
-      modalContent="这是弹窗内容"
-      onClick={(event, modalAction) => {
-        window.console.log({ event, modalAction })
+      content="这是弹窗内容"
+      onClick={(event, action) => {
+        window.console.log({ event, action })
         message.info({
           content: '1秒后打开弹窗',
           duration: 1,
-          onClose() {
-            modalAction.open()
-          },
+          onClose: action.open,
         })
       }}
     >
@@ -22,4 +20,4 @@ function BaseModalBaseDemo() {
   )
 }
 
-export default BaseModalBaseDemo
+export default App
