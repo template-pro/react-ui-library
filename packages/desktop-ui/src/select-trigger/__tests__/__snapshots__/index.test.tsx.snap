@@ -2,7 +2,7 @@
 
 exports[`SelectTrigger 支持数组和字符串格式 value 1`] = `
 <p
-  class="temp-pc-select-trigger-value"
+  class="template-pro__pc-select-trigger-value"
 >
   hello world
 </p>
@@ -10,7 +10,7 @@ exports[`SelectTrigger 支持数组和字符串格式 value 1`] = `
 
 exports[`SelectTrigger 支持数组和字符串格式 value 2`] = `
 <p
-  class="temp-pc-select-trigger-value"
+  class="template-pro__pc-select-trigger-value"
 >
   hello
   、
@@ -21,17 +21,17 @@ exports[`SelectTrigger 支持数组和字符串格式 value 2`] = `
 exports[`SelectTrigger 正确 render 1`] = `
 <div>
   <div
-    class="temp-pc-select-trigger temp-pc-select-trigger-size__lg"
+    class="template-pro__pc-select-trigger template-pro__pc-select-trigger-size__lg"
     tabindex="0"
   >
     <p
-      class="temp-pc-select-trigger-placeholder"
+      class="template-pro__pc-select-trigger-placeholder"
     />
     <span
-      class="temp-pc-select-trigger-suffix"
+      class="template-pro__pc-select-trigger-suffix"
     >
       <span
-        class="temp-pc-select-trigger-select-text"
+        class="template-pro__pc-select-trigger-select-text"
       >
         选择
       </span>

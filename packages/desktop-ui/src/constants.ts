@@ -1,1 +1,1 @@
-export const defaultPrefixCls = 'temp-pc'
+export const defaultPrefixCls = 'template-pro__pc'

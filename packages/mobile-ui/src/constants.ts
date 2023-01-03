@@ -1,1 +1,1 @@
-export const defaultPrefixCls = 'temp-m'
+export const defaultPrefixCls = 'template-pro__mobile'
