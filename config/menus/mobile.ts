@@ -8,7 +8,9 @@ const mobileComponent: ComponentMenus = {
   navigation: [],
   dataDisplay: [],
   dataEntry: [],
-  feedback: [],
+  feedback: [
+    'src/base-popup',
+  ],
   guidance: [],
   other: [],
 }
