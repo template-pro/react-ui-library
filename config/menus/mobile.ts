@@ -10,6 +10,7 @@ const mobileComponent: ComponentMenus = {
   dataEntry: [],
   feedback: [
     'src/base-popup',
+    'src/base-mask',
   ],
   guidance: [],
   other: [],

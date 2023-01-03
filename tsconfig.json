@@ -17,6 +17,7 @@
       "@template-pro/utils": ["./packages/utils/src/index"]
     },
     "types": ["node", "jest"],
+    "typeRoots": ["./typings", "./node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "declaration": false,
