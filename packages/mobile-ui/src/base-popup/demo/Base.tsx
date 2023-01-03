@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
-import { Button } from 'antd-mobile'
 import type { UseModalEnhancedAction, UseModalEnhancedContext } from '@template-pro/mobile-ui'
-import { BasePopup } from '@template-pro/mobile-ui'
+import { BasePopup, Button } from '@template-pro/mobile-ui'
 
 const Content = ({ enhancedAction }: Partial<UseModalEnhancedContext>) => (
   <div style={{ padding: 24 }}>
@@ -13,16 +12,22 @@ const Content = ({ enhancedAction }: Partial<UseModalEnhancedContext>) => (
 )
 
 function App() {
-  const drawerRef = useRef<UseModalEnhancedAction>(null)
+  const popupRef = useRef<UseModalEnhancedAction>(null)
 
   return (
-    <BasePopup
-      content={<Content />}
-      bodyStyle={{ height: '40vh' }}
-      actionRef={drawerRef}
-    >
-      <Button>打开弹出层</Button>
-    </BasePopup>
+    <>
+      <BasePopup
+        content={<Content />}
+        bodyStyle={{ height: '40vh' }}
+        actionRef={popupRef}
+      >
+        <Button>打开弹出层</Button>
+      </BasePopup>
+
+      <Button onClick={() => popupRef.current?.open()}>
+        App ref 打开弹出层
+      </Button>
+    </>
   )
 }
 
