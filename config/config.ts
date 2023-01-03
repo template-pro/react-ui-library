@@ -35,8 +35,11 @@ const config: IConfig = {
       'babel-plugin-import',
       {
         libraryName: 'antd-mobile',
-        libraryDirectory: 'es',
-        style: true,
+        libraryDirectory: 'es/components',
+        style: false,
+        customStyleName: (name: string) => {
+          return `antd-mobile/es/components/${name}/${name}.css`
+        },
       },
       'antd-mobile',
     ],
