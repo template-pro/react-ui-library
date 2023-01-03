@@ -49,7 +49,7 @@ function compileLess(ismModules) {
   del.sync(ismModules !== false ? libDir : esDir)
 
   const lessS = gulp
-    .src(['src/**/*.less'])
+    .src(['src/**/*.less', '!src/*/demo/**/*.less'])
     .pipe(
       through2.obj(function (file, encoding, next) {
         this.push(file.clone())
