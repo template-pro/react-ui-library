@@ -5,7 +5,10 @@ const utilsMenu = [
   },
   {
     title: 'React Hooks',
-    children: ['src/use-props-value'],
+    children: [
+      'src/use-props-value',
+      'src/use-modal-enhanced',
+    ],
   },
   // {
   //   title: "Date & Time",
