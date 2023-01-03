@@ -3,3 +3,6 @@ export { default as mergeProps } from './with-default-props'
 
 // RegExp
 export * as anyRule from './any-rule'
+
+// Is
+export * from './is'
