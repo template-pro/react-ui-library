@@ -1,7 +1,7 @@
-export type { BaseModalAction, BaseModalProps } from './base-modal'
+export type { BaseModalProps } from './base-modal'
 export { default as BaseModal } from './base-modal'
 
-export type { BaseDrawerProps, BaseDrawerAction } from './base-drawer'
+export type { BaseDrawerProps } from './base-drawer'
 export { default as BaseDrawer } from './base-drawer'
 
 export type { IgnoreEmojiInputProps } from './ignore-emoji-input'
@@ -19,3 +19,8 @@ export { default as SearchResult } from './search-result'
 // Third-party library
 export { ConditionInput } from '@template-pro/rc-ui'
 export type { ConditionInputProps, ConditionInputCoverProps } from '@template-pro/rc-ui'
+export type {
+  UseModalEnhancedAction,
+  UseModalEnhancedContext,
+  UseModalEnhancedProps,
+} from '@template-pro/utils'

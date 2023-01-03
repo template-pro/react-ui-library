@@ -1,47 +1,26 @@
-import Drawer, { type DrawerProps } from 'antd/es/drawer'
-import { useBoolean } from 'ahooks'
+import React from 'react'
 import classNames from 'classnames'
-import React, { useImperativeHandle, useRef } from 'react'
+import Drawer from 'antd/es/drawer'
+import type { DrawerProps } from 'antd/es/drawer'
+import type { UseModalEnhancedProps } from '@template-pro/utils'
+import { useModalEnhanced } from '@template-pro/utils'
 import { defaultPrefixCls } from '../constants'
-import { isDOMTypeElement, isElement } from '../_utils/is'
 
-export interface BaseDrawerAction {
-  close: () => void
-  open: () => void
-}
+export type BaseDrawerProps = DrawerProps & UseModalEnhancedProps
 
-export interface BaseDrawerProps {
-  children?: React.ReactNode
-  drawerContent?: React.ReactNode
-  onClick?: (
-    e: React.MouseEvent<HTMLElement>,
-    modalAction: BaseDrawerAction
-  ) => void
-  drawerProps?: DrawerProps
-}
-
-const BaseDrawer: React.ForwardRefRenderFunction<unknown, BaseDrawerProps> = (props, ref) => {
-  const [drawerVisible, { setTrue: open, setFalse: close }] = useBoolean(false)
-
-  const drawerActionRef = useRef<BaseDrawerAction>({ open, close })
-
-  const { children, drawerContent, onClick, drawerProps = {} } = props
-
+const BaseDrawer = (props: BaseDrawerProps) => {
   const {
     onClose,
     className,
     footer = null,
-    ...restDrawerProps
-  } = drawerProps
+    ...restProps
+  } = props
 
-  useImperativeHandle(ref, () => drawerActionRef.current, [drawerActionRef])
-
-  const handleButtonClick = (event: React.MouseEvent<HTMLElement>) => {
-    if (onClick)
-      return onClick(event, drawerActionRef.current)
-
-    return open()
-  }
+  const [
+    visible,
+    { close },
+    { trigger, content },
+  ] = useModalEnhanced(props)
 
   const handleDrawerClose = (event: React.MouseEvent<HTMLElement>) => {
     if (onClose)
@@ -50,34 +29,21 @@ const BaseDrawer: React.ForwardRefRenderFunction<unknown, BaseDrawerProps> = (pr
     return close()
   }
 
-  // ======================== buttonNode ========================
-  let buttonNode: React.ReactNode = children
-  if (React.isValidElement(children))
-    buttonNode = React.cloneElement<any>(children, { onClick: handleButtonClick })
-
-  // ======================== drawerContent ========================
-  let childrenNode: React.ReactNode = drawerContent
-  if (isElement(childrenNode) && !isDOMTypeElement(childrenNode)) {
-    childrenNode = React.cloneElement<any>(childrenNode, {
-      drawerAction: drawerActionRef.current,
-    })
-  }
-
   return (
     <>
-      {buttonNode}
+      {trigger}
       <Drawer
-        open={drawerVisible}
+        open={visible}
         onClose={handleDrawerClose}
         className={classNames(`${defaultPrefixCls}-base-drawer`, className)}
         footer={footer}
         destroyOnClose
-        {...restDrawerProps}
+        {...restProps}
       >
-        {childrenNode}
+        {content}
       </Drawer>
     </>
   )
 }
 
-export default React.forwardRef(BaseDrawer)
+export default BaseDrawer

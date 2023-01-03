@@ -1,48 +1,27 @@
-import Modal, { type ModalProps } from 'antd/es/modal'
-import { useBoolean } from 'ahooks'
+import React from 'react'
 import classNames from 'classnames'
-import React, { useImperativeHandle, useRef } from 'react'
+import Modal from 'antd/es/modal'
+import type { ModalProps } from 'antd/es/modal'
+import type { UseModalEnhancedProps } from '@template-pro/utils'
+import { useModalEnhanced } from '@template-pro/utils'
 import { defaultPrefixCls } from '../constants'
-import { isDOMTypeElement, isElement } from '../_utils/is'
 
-export interface BaseModalAction {
-  close: () => void
-  open: () => void
-}
+export type BaseModalProps = ModalProps & UseModalEnhancedProps
 
-export interface BaseModalProps {
-  children?: React.ReactNode
-  modalContent?: React.ReactNode
-  onClick?: (
-    e: React.MouseEvent<HTMLElement>,
-    modalAction: BaseModalAction
-  ) => void
-  modalProps?: ModalProps
-}
-
-const BaseModal: React.ForwardRefRenderFunction<unknown, BaseModalProps> = (props, ref) => {
-  const [modalVisible, { setTrue: open, setFalse: close }] = useBoolean(false)
-
-  const modalActionRef = useRef<BaseModalAction>({ open, close })
-
-  const { children, modalContent, onClick, modalProps = {} } = props
-
+const BaseModal = (props: BaseModalProps) => {
   const {
     onOk,
     onCancel,
-    className,
     footer = null,
-    ...restModalProps
-  } = modalProps
+    className,
+    ...restProps
+  } = props
 
-  useImperativeHandle(ref, () => modalActionRef.current, [modalActionRef])
-
-  const handleButtonClick = (event: React.MouseEvent<HTMLElement>) => {
-    if (onClick)
-      return onClick(event, modalActionRef.current)
-
-    return open()
-  }
+  const [
+    visible,
+    { close },
+    { trigger, content },
+  ] = useModalEnhanced(props)
 
   const handleModalOk = (event: React.MouseEvent<HTMLElement>) => {
     if (onOk)
@@ -58,36 +37,23 @@ const BaseModal: React.ForwardRefRenderFunction<unknown, BaseModalProps> = (prop
     return close()
   }
 
-  // ======================== buttonNode ========================
-  let buttonNode: React.ReactNode = children
-  if (React.isValidElement(children))
-    buttonNode = React.cloneElement<any>(children, { onClick: handleButtonClick })
-
-  // ======================== modalContent ========================
-  let childrenNode: React.ReactNode = modalContent
-  if (isElement(childrenNode) && !isDOMTypeElement(childrenNode)) {
-    childrenNode = React.cloneElement<any>(childrenNode, {
-      modalAction: modalActionRef.current,
-    })
-  }
-
   return (
     <>
-      {buttonNode}
+      {trigger}
       <Modal
-        open={modalVisible}
+        open={visible}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
         centered
         className={classNames(`${defaultPrefixCls}-base-modal`, className)}
         footer={footer}
         destroyOnClose
-        {...restModalProps}
+        {...restProps}
       >
-        {childrenNode}
+        {content}
       </Modal>
     </>
   )
 }
 
-export default React.forwardRef(BaseModal)
+export default BaseModal
