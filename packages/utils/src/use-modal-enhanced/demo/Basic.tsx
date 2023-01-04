@@ -1,5 +1,5 @@
 import React from 'react'
-import type { UseModalEnhancedAction, UseModalEnhancedContext, UseModalEnhancedProps } from '@template-pro/utils'
+import type { UseModalEnhancedAction, UseModalEnhancedContent, UseModalEnhancedProps } from '@template-pro/utils'
 import { useModalEnhanced } from '@template-pro/utils'
 import type { ModalProps } from './Modal'
 import Modal from './Modal'
@@ -29,7 +29,7 @@ const EnhancedModal = (props: EnhancedModalProps) => {
 }
 
 // Final usage
-const Content = ({ enhancedAction }: Partial<UseModalEnhancedContext>) => (
+const Content = ({ enhancedAction }: Partial<UseModalEnhancedContent>) => (
   <>
     hello world
     <p>Content</p>

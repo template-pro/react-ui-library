@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
-import type { UseModalEnhancedAction, UseModalEnhancedContext } from '@template-pro/mobile-ui'
+import type { UseModalEnhancedAction, UseModalEnhancedContent } from '@template-pro/mobile-ui'
 import { BasePopup } from '@template-pro/mobile-ui'
 import { Button } from 'antd-mobile'
 
-const Content = ({ enhancedAction }: Partial<UseModalEnhancedContext>) => (
+const Content = ({ enhancedAction }: Partial<UseModalEnhancedContent>) => (
   <div style={{ padding: 24 }}>
     <h3>这是弹出层内容</h3>
     <Button onClick={enhancedAction?.close}>

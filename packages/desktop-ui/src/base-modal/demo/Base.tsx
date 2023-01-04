@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import { Button } from 'antd'
-import type { UseModalEnhancedAction, UseModalEnhancedContext } from '@template-pro/desktop-ui'
+import type { UseModalEnhancedAction, UseModalEnhancedContent } from '@template-pro/desktop-ui'
 import { BaseModal } from '@template-pro/desktop-ui'
 
-const Content = ({ enhancedAction }: Partial<UseModalEnhancedContext>) => (
+const Content = ({ enhancedAction }: Partial<UseModalEnhancedContent>) => (
   <>
     <h3>这是弹框内容</h3>
     <Button onClick={enhancedAction?.close}>

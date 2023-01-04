@@ -21,6 +21,6 @@ export { ConditionInput } from '@template-pro/rc-ui'
 export type { ConditionInputProps, ConditionInputCoverProps } from '@template-pro/rc-ui'
 export type {
   UseModalEnhancedAction,
-  UseModalEnhancedContext,
+  UseModalEnhancedContent,
   UseModalEnhancedProps,
 } from '@template-pro/utils'

@@ -4,7 +4,7 @@ export { default as mergeProps } from './with-default-props'
 export type {
   UseModalEnhancedAction,
   UseModalEnhancedProps,
-  UseModalEnhancedContext,
+  UseModalEnhancedContent,
 } from './use-modal-enhanced'
 export { default as useModalEnhanced } from './use-modal-enhanced'
 

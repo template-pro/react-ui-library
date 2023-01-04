@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
-import type { UseModalEnhancedAction, UseModalEnhancedContext } from '@template-pro/mobile-ui'
+import type { UseModalEnhancedAction, UseModalEnhancedContent } from '@template-pro/mobile-ui'
 import { BaseMask } from '@template-pro/mobile-ui'
 import { Button } from 'antd-mobile'
 import styles from './style.less'
 
-const Content = ({ enhancedAction }: Partial<UseModalEnhancedContext>) => (
+const Content = ({ enhancedAction }: Partial<UseModalEnhancedContent>) => (
   <div className={styles.overlayContent}>
     <h3>这是背景蒙层内容</h3>
     <Button onClick={enhancedAction?.close}>

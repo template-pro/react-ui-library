@@ -2,7 +2,7 @@ import useBoolean from 'ahooks/es/useBoolean'
 import React from 'react'
 import { isDOMTypeElement, isElement } from '../is'
 
-export interface UseModalEnhancedContext {
+export interface UseModalEnhancedContent {
   enhancedAction: UseModalEnhancedAction
 }
 
@@ -46,8 +46,8 @@ function useModalEnhanced(props: UseModalEnhancedProps = {}) {
 
   // ======================== Content ========================
   let contentNode: React.ReactNode = content
-  if (isElement<UseModalEnhancedContext>(contentNode) && !isDOMTypeElement(contentNode)) {
-    contentNode = React.cloneElement<UseModalEnhancedContext>(contentNode, {
+  if (isElement<UseModalEnhancedContent>(contentNode) && !isDOMTypeElement(contentNode)) {
+    contentNode = React.cloneElement<UseModalEnhancedContent>(contentNode, {
       enhancedAction: actionRef.current,
     })
   }
