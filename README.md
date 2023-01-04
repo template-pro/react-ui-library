@@ -1,7 +1,5 @@
 # @template-pro/react-ui-library
 
-## Usage
-
 ## Use Template
 
 ### GitHub Template
