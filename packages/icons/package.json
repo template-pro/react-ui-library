@@ -18,6 +18,7 @@
     "clean": "gulp clean",
     "build:svg": "gulp copy && svgr --template scripts/buildIconTemplate.js --typescript --out-dir src temp",
     "build": "pnpm run clean && pnpm run build:svg && gulp",
+    "prepublishOnly": "pnpm run build",
     "release": "bumpp --tag @template-pro/icons@%s --all --no-verify && pnpm publish"
   },
   "publishConfig": {
