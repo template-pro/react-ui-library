@@ -3,12 +3,16 @@ import type { IConfig } from 'dumi'
 import { menus } from './menus'
 import { navs } from './navs'
 
+const basePath = process.env.GITHUB_ACTIONS ? '/react-ui-library/' : '/';
+const publicPath = process.env.GITHUB_ACTIONS ? '/react-ui-library/' : '/';
+
 const resolvePath = (dir: string) => path.resolve(process.cwd(), dir)
 
 const config: IConfig = {
-  base: '/',
-  publicPath: '/',
+  base: basePath,
+  publicPath,
   exportStatic: {},
+  outputPath: '.doc',
   nodeModulesTransform: {
     type: 'none',
     exclude: [],
