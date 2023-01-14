@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "build": "gulp",
+    "prepublishOnly": "pnpm run build",
     "release": "bumpp --tag @template-pro/desktop-ui@%s --all --no-verify && pnpm publish"
   },
   "peerDependencies": {
