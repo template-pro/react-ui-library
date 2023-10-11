@@ -14,7 +14,7 @@ const App = () => {
       </ConditionInput>
 
       <p>多个正则(前后不允许空格且不能能输入数字)</p>
-      <ConditionInput regexes={['\\s', /\d/g]} onChange={onChange} >
+      <ConditionInput regexes={[/(^\s*)|(\s*$)/g, /\d/g]} onChange={onChange} >
         <input type="text" />
       </ConditionInput>
 
